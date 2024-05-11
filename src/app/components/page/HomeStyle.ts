@@ -25,6 +25,17 @@ export const HomeContainer = styled.section`
       height: 3rem;
       background: #fff;
       border-radius: 0.75rem;
+      padding-left: 0.25rem;
+      color: #000;
+      display: flex;
+      align-items: center;
+
+      & > i {
+        width: 2.25rem;
+        font-size: 0.75rem;
+        color: grey;
+        margin-right: 1rem;
+      }
     }
   }
 `;

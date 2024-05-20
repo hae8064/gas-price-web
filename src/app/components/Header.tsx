@@ -2,6 +2,7 @@
 import { HorizontalStyle } from '@/GlobalStyle';
 import { OilAvgPriceType } from '@/type/type';
 import { getCurrentDate } from '@/utils/currentDate';
+import { formatPrice } from '@/utils/formatPrice';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
@@ -38,11 +39,11 @@ export default function Header() {
             <HorizontalStyle>
                 <div className="gasoline">
                     <i>휘발유</i>
-                    <span>{gasolinePrice}원</span>
+                    <span>{formatPrice(gasolinePrice)}원</span>
                 </div>
                 <div className="diesel">
                     <i>경유</i>
-                    <span>{dieselPrice}원</span>
+                    <span>{formatPrice(dieselPrice)}원</span>
                 </div>
             </HorizontalStyle>
         </header>

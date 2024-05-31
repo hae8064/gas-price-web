@@ -1,5 +1,6 @@
 'use client';
 import { HorizontalStyle } from '@/GlobalStyle';
+import { API_URL } from '@/config/config';
 import { OilAvgPriceType } from '@/type/type';
 import { getCurrentDate } from '@/utils/currentDate';
 import { formatPrice } from '@/utils/formatPrice';
@@ -12,8 +13,7 @@ export default function Header() {
 
     const getAvgPrice = async () => {
         try {
-            const avgPriceRes: OilAvgPriceType[] = (await axios.get('http://localhost:5000/oil/avg-price')).data.RESULT
-                .OIL;
+            const avgPriceRes: OilAvgPriceType[] = (await axios.get(`${API_URL}/oil/avg-price`)).data.RESULT.OIL;
             avgPriceRes.forEach((oil: OilAvgPriceType) => {
                 if (oil.PRODNM === '휘발유') {
                     setGasolinePrice(Math.round(Number(oil.PRICE)));

@@ -1,6 +1,5 @@
-import Home from "./components/page/Home";
-import styles from "./page.module.css";
+import Home from '../components/page/Home';
 
 export default function Page() {
-  return <Home />;
+    return <Home />;
 }

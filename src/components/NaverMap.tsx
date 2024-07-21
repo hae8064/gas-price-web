@@ -23,6 +23,10 @@ export default function NaverMap() {
         const newMap = new naver.maps.Map(mapElement!, mapOptions);
         if (!newMap) return;
         setMap(newMap);
+    }, []);
+
+    useEffect(() => {
+        if (!map) return;
 
         // 사용자의 현재 위치 가져오기
         if (navigator.geolocation) {
@@ -35,12 +39,12 @@ export default function NaverMap() {
                     setMyLocation({ latitude, longitude });
 
                     // 지도 중심을 현재 위치로 변경
-                    newMap.setCenter(currentLocation);
+                    map.setCenter(currentLocation);
 
                     // 현재 위치에 마커 추가
                     new naver.maps.Marker({
                         position: currentLocation,
-                        map: newMap,
+                        map: map,
                         title: '현재 위치'
                     });
                 },
@@ -52,11 +56,11 @@ export default function NaverMap() {
         } else {
             console.error('Geolocation is not supported by this browser.');
         }
-    }, []);
+    }, [map]);
 
-    return (
-        <div>
-            <div id="map" style={{ width: '100%', height: '400px' }}></div>
-        </div>
-    );
+    useEffect(() => {
+        console.log('myLocation', myLocation);
+    }, [myLocation]);
+
+    return <div id="map" style={{ width: '100%', height: '100%' }}></div>;
 }

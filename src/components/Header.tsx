@@ -34,7 +34,7 @@ export default function Header() {
         <header>
             <h2>나만의 주유소</h2>
             <p>
-                평균 기름값 <i>( {getCurrentDate()} )</i>
+                전국 평균 기름값 <i>( {getCurrentDate()} )</i>
             </p>
             <HorizontalStyle>
                 <div className="gasoline">

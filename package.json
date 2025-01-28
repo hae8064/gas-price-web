@@ -1,30 +1,33 @@
 {
-  "name": "gas-price-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@tanstack/react-query": "^5.64.2",
-    "axios": "^1.6.8",
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "styled-components": "^6.1.9",
-    "styled-reset": "^4.5.2"
-  },
-  "devDependencies": {
-    "@types/navermaps": "^3.7.5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.3",
-    "prettier": "^3.2.5",
-    "typescript": "^5"
-  }
+    "name": "gas-price-web",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "format": "prettier --write ."
+    },
+    "dependencies": {
+        "@tanstack/react-query": "^5.64.2",
+        "axios": "^1.6.8",
+        "next": "14.2.3",
+        "react": "^18",
+        "react-dom": "^18",
+        "styled-components": "^6.1.9",
+        "styled-reset": "^4.5.2"
+    },
+    "devDependencies": {
+        "@types/navermaps": "^3.7.5",
+        "@types/node": "^20",
+        "@types/react": "^18",
+        "@types/react-dom": "^18",
+        "eslint": "^8",
+        "eslint-config-next": "14.2.3",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.3",
+        "prettier": "^3.4.2",
+        "typescript": "^5"
+    }
 }

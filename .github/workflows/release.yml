@@ -1,45 +1,45 @@
 name: Publish
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  release:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20.x'
+    release:
+        runs-on: ubuntu-20.04
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  persist-credentials: false
+                  fetch-depth: 0
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: '20.x'
 
-      - name: Cache Node Modules
-        id: cache-modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
+            - name: Cache Node Modules
+              id: cache-modules
+              uses: actions/cache@v3
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+                  restore-keys: |
+                      ${{ runner.os }}-node-modules-
 
-      - name: Install Node Modules
-        if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm install
+            - name: Install Node Modules
+              if: steps.cache-modules.outputs.cache-hit != 'true'
+              run: npm install
 
-      - name: Release
-        if: ${{ endsWith(github.ref, '/main') }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE }}
-        run: npx semantic-release
-        continue-on-error: true
+            - name: Release
+              if: ${{ endsWith(github.ref, '/main') }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.RELEASE }}
+              run: npx semantic-release
+              continue-on-error: true
 
-      - name: Install Node Modules
-        if: steps.cache-modules.outputs.cache-hit != 'true'
-        run: npm install
+            - name: Install Node Modules
+              if: steps.cache-modules.outputs.cache-hit != 'true'
+              run: npm install
 
-      - name: Build
-        run: npm run build
+            - name: Build
+              run: npm run build

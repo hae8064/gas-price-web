@@ -1,13 +1,9 @@
 'use client';
 import { HorizontalStyle } from '@/GlobalStyle';
-import { AveragePriceRes } from '@/type/api/type';
-
 import { OilAvgPriceType } from '@/type/type';
 import { getCurrentDate } from '@/utils/currentDate';
 import { formatPrice } from '@/utils/formatPrice';
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { getAveragePrice } from '../api/getAvgPrice';
 import { useAveragePrice } from '@/hooks/queries/useAveragePrice';
 
 export default function Header() {

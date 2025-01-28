@@ -26,10 +26,7 @@ export default function RootLayout({
                         {children}
                     </StyledComponentsRegistry>
                 </Provider>
-                <Script
-                    strategy="beforeInteractive"
-                    src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP}`}
-                ></Script>
+                <Script strategy="beforeInteractive" src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP}`}></Script>
             </body>
         </html>
     );

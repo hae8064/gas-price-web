@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import StyledComponentsRegistry from './lib/registry';
 import { GlobalStyle } from '@/GlobalStyle';
 import Script from 'next/script';
+import Provider from './Provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
     return (
         <html lang="ko">
             <body>
-                <StyledComponentsRegistry>
-                    <GlobalStyle />
-                    {children}
-                </StyledComponentsRegistry>
+                <Provider>
+                    <StyledComponentsRegistry>
+                        <GlobalStyle />
+                        {children}
+                    </StyledComponentsRegistry>
+                </Provider>
                 <Script
                     strategy="beforeInteractive"
                     src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP}`}

@@ -1,7 +1,6 @@
 'use client';
 import { HorizontalStyle } from '@/GlobalStyle';
 import { AveragePriceRes } from '@/type/api/type';
-
 import { OilAvgPriceType } from '@/type/type';
 import { getCurrentDate } from '@/utils/currentDate';
 import { formatPrice } from '@/utils/formatPrice';
@@ -33,7 +32,7 @@ export default function Header() {
         <header>
             <h2>나만의 주유소</h2>
             <p>
-                전국 평균 기름값 <i>( {getCurrentDate()} )</i>
+                평균 기름값 <i>( {getCurrentDate()} )</i>
             </p>
             <HorizontalStyle>
                 <div className="gasoline">
